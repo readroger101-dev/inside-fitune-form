@@ -15,7 +15,7 @@ exports.handler = async function(event) {
       context: {
         pageUri: data.pageUri || 'https://inside-fitune-form.netlify.app',
         pageName: 'Inside Fitune - Mega Demo',
-        ipAddress: event.headers['x-forwarded-for'] || '',
+        ipAddress: (event.headers['x-forwarded-for'] || '').split(',')[0].trim() || '',
       },
       legalConsentOptions: {
         consent: {
