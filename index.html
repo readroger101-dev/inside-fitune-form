@@ -557,15 +557,27 @@
     const uniqueEmail = `test+${Date.now()}@example.com`;
 
     const payload = {
-      fields: [
-        { name: 'firstname', value: document.getElementById('nombre').value.trim() || 'Test Nombre' },
-        { name: 'email', value: uniqueEmail },
-        { name: 'phone', value: document.getElementById('telefono').value.trim() || '5551234567' },
-        { name: 'company', value: document.getElementById('nombre_estudio').value.trim() || 'Test Company' }
-      ],
-      pageUri: window.location.href,
-      pageName: 'Inside Fitune - Mega Demo'
-    };
+  fields: [
+    { name: 'firstname', value: document.getElementById('nombre').value.trim() || 'Test Nombre' },
+    { name: 'email', value: uniqueEmail },
+
+    // Usa tus propiedades custom reales en HubSpot
+    { name: 'telefono_whatsapp', value: document.getElementById('telefono').value.trim() || '5551234567' },
+    { name: 'nombre_del_estudio_o_negocio', value: document.getElementById('nombre_estudio').value.trim() || 'Test Company' },
+
+    // opcionales de prueba (si existen con esos internal names)
+    { name: 'instagram_handle', value: document.getElementById('instagram').value.trim() || '' },
+    { name: 'estado_del_estudio', value: document.querySelector('input[name="estado"]:checked')?.value || '' },
+    { name: 'urgencia_demo', value: document.querySelector('input[name="urgencia"]:checked')?.value || '' },
+    { name: 'wellhub_totalpass', value: document.getElementById('wellhub').value || '' },
+
+    { name: 'que_servicios_ofreces_multi_select', value: [...document.querySelectorAll('input[name="servicio"]:checked')].map(e => e.value).join(';') || '' },
+    { name: 'dolor_principal', value: [...document.querySelectorAll('input[name="dolor"]:checked')].map(e => e.value).join(';') || '' },
+    { name: 'cuantos_clientes_tienes_radio_', value: document.getElementById('clientes').value || '' }
+  ].filter(f => f.value !== ''),
+  pageUri: window.location.href,
+  pageName: 'Inside Fitune - Mega Demo'
+};
 
     const res = await fetch(endpoint, {
       method: 'POST',
