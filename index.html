@@ -547,29 +547,50 @@
     if (current > 1) { current--; updateUI(); window.scrollTo(0,0); }
   }
 
-  async function submitForm() {
-    const servicios = [...document.querySelectorAll('input[name="servicio"]:checked')].map(e => e.value).join(';');
-    const dolores   = [...document.querySelectorAll('input[name="dolor"]:checked')].map(e => e.value).join(';');
+ async function submitForm() {
+  const endpoint = '/.netlify/functions/submit';
+  const btnNext = document.getElementById('btnNext');
+  btnNext.textContent = 'Enviando...';
+  btnNext.disabled = true;
 
-    const notesValue = [
-      'Dolor principal: ' + (dolores || 'No indicado'),
-      'Wellhub/TotalPass: ' + (document.getElementById('wellhub').value || 'No indicado'),
-    ].join('\n');
+  try {
+    const uniqueEmail = `test+${Date.now()}@example.com`;
 
-    const fields = [
-      { name: 'firstname', value: document.getElementById('nombre').value.trim() },
-      { name: 'email', value: document.getElementById('email').value.trim() },
-      { name: 'phone', value: document.getElementById('telefono').value.trim() },
-      { name: 'company', value: document.getElementById('nombre_estudio').value.trim() },
-      { name: 'instagram_handle', value: document.getElementById('instagram').value.trim() },
-      { name: 'estado_del_estudio', value: document.querySelector('input[name="estado"]:checked')?.value || '' },
-      { name: 'que_servicios_ofreces_multi_select', value: servicios },
-      { name: 'cuantos_clientes_tienes_radio_', value: document.getElementById('clientes').value || '' },
-      { name: 'urgencia_demo', value: document.querySelector('input[name="urgencia"]:checked')?.value || '' },
-      { name: 'dolor_principal', value: dolores },
-      { name: 'wellhub_totalpass', value: document.getElementById('wellhub').value || '' },
-      { name: 'notes', value: notesValue }
-    ];
+    const payload = {
+      fields: [
+        { name: 'firstname', value: document.getElementById('nombre').value.trim() || 'Test Nombre' },
+        { name: 'email', value: uniqueEmail },
+        { name: 'phone', value: document.getElementById('telefono').value.trim() || '5551234567' },
+        { name: 'company', value: document.getElementById('nombre_estudio').value.trim() || 'Test Company' }
+      ],
+      pageUri: window.location.href,
+      pageName: 'Inside Fitune - Mega Demo'
+    };
+
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const responseText = await res.text();
+    console.log('STATUS', res.status, 'BODY', responseText);
+
+    if (!res.ok) {
+      alert('Error envío: ' + res.status);
+      btnNext.textContent = 'Enviar registro ✓';
+      btnNext.disabled = false;
+      return;
+    }
+
+    alert('Enviado con email: ' + uniqueEmail);
+    showSuccess();
+  } catch (e) {
+    alert('Error de red: ' + e.message);
+    btnNext.textContent = 'Enviar registro ✓';
+    btnNext.disabled = false;
+  }
+}
 
     const endpoint = '/.netlify/functions/submit';
     const btnNext = document.getElementById('btnNext');
