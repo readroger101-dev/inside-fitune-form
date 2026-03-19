@@ -31,7 +31,6 @@
     padding: 0 1rem 3rem;
   }
 
-  /* ── TOP NAV BAR ── */
   .topbar {
     width: 100%;
     background: var(--blue);
@@ -61,8 +60,6 @@
     text-decoration: none;
   }
 
-
-
   .topbar-tagline {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.7rem;
@@ -72,13 +69,8 @@
     text-transform: uppercase;
   }
 
-  /* ── WRAPPER ── */
-  .wrapper {
-    width: 100%;
-    max-width: 600px;
-  }
+  .wrapper { width: 100%; max-width: 600px; }
 
-  /* ── HERO ── */
   .hero {
     background: var(--blue);
     border-radius: 16px 16px 0 0;
@@ -135,19 +127,12 @@
     max-width: 420px;
   }
 
-  /* ── PROGRESS ── */
   .progress-bar {
     background: var(--blue-deep);
     padding: 1rem 2.5rem;
     display: flex;
     align-items: center;
     gap: 0;
-  }
-
-  .prog-step {
-    display: flex;
-    align-items: center;
-    flex: 1;
   }
 
   .prog-dot {
@@ -166,18 +151,8 @@
     z-index: 1;
   }
 
-  .prog-dot.active {
-    background: var(--yellow);
-    border-color: var(--yellow);
-    color: var(--ink);
-  }
-
-  .prog-dot.done {
-    background: var(--green);
-    border-color: var(--green);
-    color: white;
-  }
-
+  .prog-dot.active { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+  .prog-dot.done { background: var(--green); border-color: var(--green); color: white; }
   .prog-dot.done::after { content: '✓'; }
 
   .prog-line {
@@ -187,7 +162,6 @@
     margin: 0 0.4rem;
     transition: background 0.4s;
   }
-
   .prog-line.active { background: var(--green); }
 
   .prog-label {
@@ -201,13 +175,8 @@
     text-align: center;
   }
 
-  .prog-step-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  .prog-step-wrap { display: flex; flex-direction: column; align-items: center; }
 
-  /* ── CARD ── */
   .card {
     background: var(--white);
     border-radius: 0 0 16px 16px;
@@ -225,16 +194,8 @@
     border-bottom: 2px solid var(--cloud);
   }
 
-  /* ── FIELDS ── */
-  .field-group {
-    display: none;
-    flex-direction: column;
-    gap: 1.2rem;
-    animation: fadeUp 0.3s ease both;
-  }
-
+  .field-group { display: none; flex-direction: column; gap: 1.2rem; animation: fadeUp 0.3s ease both; }
   .field-group.active { display: flex; }
-
   .field { display: flex; flex-direction: column; gap: 0.45rem; }
 
   label.field-label {
@@ -248,10 +209,7 @@
 
   label.field-label .req { color: var(--blue); margin-left: 2px; }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  select {
+  input[type="text"], input[type="email"], input[type="tel"], select {
     background: var(--cloud);
     border: 1.5px solid #DDE4EE;
     color: var(--ink);
@@ -274,19 +232,13 @@
     cursor: pointer;
   }
 
-  input:focus, select:focus {
-    border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
-    background: var(--white);
-  }
-
+  input:focus, select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); background: var(--white); }
   input::placeholder { color: #94A3B8; }
   select option { background: white; color: var(--ink); }
 
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   @media (max-width: 480px) { .row { grid-template-columns: 1fr; } }
 
-  /* ── RADIO / CHECKBOX OPTIONS ── */
   .options { display: flex; flex-direction: column; gap: 0.5rem; }
 
   .opt {
@@ -303,33 +255,11 @@
   }
 
   .opt:hover { border-color: var(--blue); }
-
-  .opt input[type="radio"],
-  .opt input[type="checkbox"] {
-    width: 17px; height: 17px;
-    accent-color: var(--blue);
-    cursor: pointer;
-    flex-shrink: 0;
-    border: none;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .opt span {
-    font-size: 0.9rem;
-    color: var(--ink);
-    line-height: 1.3;
-  }
-
-  .opt:has(input:checked) {
-    border-color: var(--blue);
-    background: var(--blue-sky);
-  }
-
+  .opt input[type="radio"], .opt input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--blue); cursor: pointer; flex-shrink: 0; border: none; background: none; box-shadow: none; padding: 0; }
+  .opt span { font-size: 0.9rem; color: var(--ink); line-height: 1.3; }
+  .opt:has(input:checked) { border-color: var(--blue); background: var(--blue-sky); }
   .opt:has(input:checked) span { color: var(--blue-deep); font-weight: 700; }
 
-  /* ── HINT BOX ── */
   .hint-box {
     display: none;
     align-items: flex-start;
@@ -347,28 +277,12 @@
   .hint-box strong { font-weight: 700; }
   .hint-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
 
-  /* ── NAVIGATION ── */
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2rem;
-    gap: 1rem;
-  }
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; gap: 1rem; }
 
   @media (max-width: 480px) {
-    .nav {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .btn-primary {
-      max-width: 100%;
-      flex: 1;
-      margin-left: 0;
-    }
-    .btn-ghost {
-      flex-shrink: 0;
-    }
+    .nav { flex-direction: row; justify-content: space-between; }
+    .btn-primary { max-width: 100%; flex: 1; margin-left: 0; }
+    .btn-ghost { flex-shrink: 0; }
   }
 
   .btn {
@@ -384,12 +298,7 @@
     text-transform: uppercase;
   }
 
-  .btn-ghost {
-    background: transparent;
-    color: var(--slate);
-    border: 1.5px solid #DDE4EE;
-  }
-
+  .btn-ghost { background: transparent; color: var(--slate); border: 1.5px solid #DDE4EE; }
   .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
 
   .btn-primary {
@@ -404,15 +313,9 @@
     gap: 0.5rem;
   }
 
-  .btn-primary:hover {
-    background: var(--blue-deep);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(37,99,235,0.35);
-  }
-
+  .btn-primary:hover { background: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,99,235,0.35); }
   .btn-primary:active { transform: translateY(0); }
 
-  /* ── SUCCESS ── */
   .success {
     display: none;
     flex-direction: column;
@@ -434,19 +337,8 @@
     font-size: 2.2rem;
   }
 
-  .success h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--ink);
-  }
-
-  .success p {
-    color: var(--slate);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    max-width: 380px;
-  }
+  .success h2 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--ink); }
+  .success p { color: var(--slate); font-size: 0.95rem; line-height: 1.6; max-width: 380px; }
 
   .success .kpi {
     background: var(--blue);
@@ -458,23 +350,9 @@
     font-weight: 600;
   }
 
-  .success .kpi span {
-    display: block;
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--yellow);
-    line-height: 1.1;
-  }
+  .success .kpi span { display: block; font-size: 2rem; font-weight: 800; color: var(--yellow); line-height: 1.1; }
+  .form-footer { text-align: center; margin-top: 1.2rem; font-size: 0.75rem; color: var(--slate); }
 
-  /* ── FOOTER ── */
-  .form-footer {
-    text-align: center;
-    margin-top: 1.2rem;
-    font-size: 0.75rem;
-    color: var(--slate);
-  }
-
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -483,114 +361,59 @@
 </head>
 <body>
 
-<!-- Top bar -->
 <div class="topbar">
   <a class="logo" href="#"><img src="data:image/png;base64,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" alt="fitune" style="height:34px;width:auto;"></a>
   <span class="topbar-tagline">Ayudamos a los estudios a ganar</span>
 </div>
 
 <div class="wrapper">
-
-  <!-- Hero -->
   <div class="hero">
     <div class="hero-label">Inside Fitune · Mega Demo</div>
     <h1>Reserva tu lugar<br>en la Mega Demo.</h1>
     <p>Descubre en vivo cómo los mejores estudios fitness de México usan Fitune para crecer. Regístrate y asegura tu cupo.</p>
   </div>
 
-  <!-- Progress -->
   <div class="progress-bar">
-    <div class="prog-step-wrap">
-      <div class="prog-dot active" id="dot1">1</div>
-      <div class="prog-label">Contacto</div>
-    </div>
+    <div class="prog-step-wrap"><div class="prog-dot active" id="dot1">1</div><div class="prog-label">Contacto</div></div>
     <div class="prog-line" id="line1"></div>
-    <div class="prog-step-wrap">
-      <div class="prog-dot" id="dot2">2</div>
-      <div class="prog-label">Tu negocio</div>
-    </div>
+    <div class="prog-step-wrap"><div class="prog-dot" id="dot2">2</div><div class="prog-label">Tu negocio</div></div>
     <div class="prog-line" id="line2"></div>
-    <div class="prog-step-wrap">
-      <div class="prog-dot" id="dot3">3</div>
-      <div class="prog-label">Intención</div>
-    </div>
+    <div class="prog-step-wrap"><div class="prog-dot" id="dot3">3</div><div class="prog-label">Intención</div></div>
   </div>
 
-  <!-- Card -->
   <div class="card">
     <div class="step-title" id="stepTitle">Datos de contacto</div>
 
-    <!-- Step 1 -->
     <div class="field-group active" id="step1">
       <div class="row">
-        <div class="field">
-          <label class="field-label">Nombre completo <span class="req">*</span></label>
-          <input type="text" id="nombre" placeholder="Tu nombre completo">
-        </div>
-        <div class="field">
-          <label class="field-label">Nombre de tu estudio fitness <span class="req">*</span></label>
-          <input type="text" id="nombre_estudio" placeholder="Ej. Studio Flow, Iron Box...">
-        </div>
+        <div class="field"><label class="field-label">Nombre completo <span class="req">*</span></label><input type="text" id="nombre" placeholder="Tu nombre completo"></div>
+        <div class="field"><label class="field-label">Nombre de tu estudio fitness <span class="req">*</span></label><input type="text" id="nombre_estudio" placeholder="Ej. Studio Flow, Iron Box..."></div>
       </div>
       <div class="row">
-        <div class="field">
-          <label class="field-label">Email <span class="req">*</span></label>
-          <input type="email" id="email" placeholder="hola@estudio.com">
-        </div>
-        <div class="field">
-          <label class="field-label">Teléfono / WhatsApp <span class="req">*</span></label>
-          <input type="tel" id="telefono" placeholder="+52 55 0000 0000">
-        </div>
+        <div class="field"><label class="field-label">Email <span class="req">*</span></label><input type="email" id="email" placeholder="hola@estudio.com"></div>
+        <div class="field"><label class="field-label">Teléfono / WhatsApp <span class="req">*</span></label><input type="tel" id="telefono" placeholder="+52 55 0000 0000"></div>
       </div>
-      <div class="field">
-        <label class="field-label">Instagram de tu estudio</label>
-        <input type="text" id="instagram" placeholder="@tuestudio">
-      </div>
+      <div class="field"><label class="field-label">Instagram de tu estudio</label><input type="text" id="instagram" placeholder="@tuestudio"></div>
     </div>
 
-    <!-- Step 2 -->
     <div class="field-group" id="step2">
       <div class="field">
         <label class="field-label">Estado de tu estudio fitness <span class="req">*</span></label>
         <div class="options" id="estadoGroup">
-          <label class="opt">
-            <input type="radio" name="estado" value="operando">
-            <span>✅ Operando ahora</span>
-          </label>
-          <label class="opt">
-            <input type="radio" name="estado" value="por_abrir">
-            <span>🚀 Por abrir en los próximos 3 meses</span>
-          </label>
-          <label class="opt">
-            <input type="radio" name="estado" value="explorando">
-            <span>🔍 Explorando / sin fecha establecida</span>
-          </label>
+          <label class="opt"><input type="radio" name="estado" value="operando"><span>✅ Operando ahora</span></label>
+          <label class="opt"><input type="radio" name="estado" value="por_abrir"><span>🚀 Por abrir en los próximos 3 meses</span></label>
+          <label class="opt"><input type="radio" name="estado" value="explorando"><span>🔍 Explorando / sin fecha establecida</span></label>
         </div>
       </div>
 
       <div class="field">
         <label class="field-label">Servicios que ofreces o planeas ofrecer <span class="req">*</span></label>
         <div class="options">
-          <label class="opt">
-            <input type="checkbox" name="servicio" value="clases_grupales">
-            <span>🏋️ Clases grupales (yoga, pilates, funcional, etc.)</span>
-          </label>
-          <label class="opt">
-            <input type="checkbox" name="servicio" value="citas_1a1">
-            <span>🤝 Citas 1:1</span>
-          </label>
-          <label class="opt">
-            <input type="checkbox" name="servicio" value="virtual">
-            <span>💻 Entrenamiento virtual</span>
-          </label>
-          <label class="opt">
-            <input type="checkbox" name="servicio" value="streaming">
-            <span>📹 Streaming / Video bajo demanda</span>
-          </label>
-          <label class="opt">
-            <input type="checkbox" name="servicio" value="otro">
-            <span>➕ Otro</span>
-          </label>
+          <label class="opt"><input type="checkbox" name="servicio" value="clases_grupales"><span>🏋️ Clases grupales (yoga, pilates, funcional, etc.)</span></label>
+          <label class="opt"><input type="checkbox" name="servicio" value="citas_1a1"><span>🤝 Citas 1:1</span></label>
+          <label class="opt"><input type="checkbox" name="servicio" value="virtual"><span>💻 Entrenamiento virtual</span></label>
+          <label class="opt"><input type="checkbox" name="servicio" value="streaming"><span>📹 Streaming / Video bajo demanda</span></label>
+          <label class="opt"><input type="checkbox" name="servicio" value="otro"><span>➕ Otro</span></label>
         </div>
       </div>
 
@@ -607,54 +430,25 @@
       </div>
     </div>
 
-    <!-- Step 3 -->
     <div class="field-group" id="step3">
-
       <div class="field">
         <label class="field-label">¿Cuándo necesitas tener una solución funcionando? <span class="req">*</span></label>
         <div class="options" id="urgenciaGroup">
-          <label class="opt">
-            <input type="radio" name="urgencia" value="esta_semana">
-            <span>⚡ Esta semana</span>
-          </label>
-          <label class="opt">
-            <input type="radio" name="urgencia" value="este_mes">
-            <span>📅 Este mes</span>
-          </label>
-          <label class="opt">
-            <input type="radio" name="urgencia" value="1_3_meses">
-            <span>🗓️ En 1 a 3 meses</span>
-          </label>
-          <label class="opt">
-            <input type="radio" name="urgencia" value="solo_explorando">
-            <span>🔍 Solo explorando por ahora</span>
-          </label>
+          <label class="opt"><input type="radio" name="urgencia" value="esta_semana"><span>⚡ Esta semana</span></label>
+          <label class="opt"><input type="radio" name="urgencia" value="este_mes"><span>📅 Este mes</span></label>
+          <label class="opt"><input type="radio" name="urgencia" value="1_3_meses"><span>🗓️ En 1 a 3 meses</span></label>
+          <label class="opt"><input type="radio" name="urgencia" value="solo_explorando"><span>🔍 Solo explorando por ahora</span></label>
         </div>
       </div>
 
       <div class="field">
         <label class="field-label">¿Cuál es tu mayor dolor hoy? <span class="req">*</span></label>
         <div class="options">
-          <label class="opt">
-            <input type="checkbox" name="dolor" value="cobros">
-            <span>💳 Cobros y pagos manuales</span>
-          </label>
-          <label class="opt">
-            <input type="checkbox" name="dolor" value="agenda">
-            <span>📆 Agendamiento desordenado</span>
-          </label>
-          <label class="opt">
-            <input type="checkbox" name="dolor" value="retencion">
-            <span>📉 Retención de clientes</span>
-          </label>
-          <label class="opt">
-            <input type="checkbox" name="dolor" value="asistencia">
-            <span>✍️ Control de asistencia</span>
-          </label>
-          <label class="opt">
-            <input type="checkbox" name="dolor" value="reportes">
-            <span>📊 Reportes y visibilidad del negocio</span>
-          </label>
+          <label class="opt"><input type="checkbox" name="dolor" value="cobros"><span>💳 Cobros y pagos manuales</span></label>
+          <label class="opt"><input type="checkbox" name="dolor" value="agenda"><span>📆 Agendamiento desordenado</span></label>
+          <label class="opt"><input type="checkbox" name="dolor" value="retencion"><span>📉 Retención de clientes</span></label>
+          <label class="opt"><input type="checkbox" name="dolor" value="asistencia"><span>✍️ Control de asistencia</span></label>
+          <label class="opt"><input type="checkbox" name="dolor" value="reportes"><span>📊 Reportes y visibilidad del negocio</span></label>
         </div>
       </div>
 
@@ -668,30 +462,20 @@
         </select>
       </div>
 
-
-      <!-- SQL hint -->
       <div class="hint-box" id="sqlHint">
         <span class="hint-icon">🎯</span>
-        <div>
-          <strong>¡Perfil prioritario!</strong> Tu estudio tiene el perfil ideal para Fitune. Un especialista te contactará en menos de 24 horas.
-        </div>
+        <div><strong>¡Perfil prioritario!</strong> Tu estudio tiene el perfil ideal para Fitune. Un especialista te contactará en menos de 24 horas.</div>
       </div>
-
     </div>
 
-    <!-- Success -->
     <div class="success" id="successScreen">
       <div class="success-icon">🎉</div>
       <h2>¡Registro exitoso!</h2>
       <p>Gracias por tu tiempo. Un agente de Fitune se pondrá en contacto contigo muy pronto.</p>
-      <div class="kpi">
-        <span>30%</span>
-        más clases llenas en 90 días con Fitune
-      </div>
+      <div class="kpi"><span>30%</span>más clases llenas en 90 días con Fitune</div>
       <p style="font-size:0.8rem;">Únete a los 700+ estudios en LATAM que ya están ganando con Fitune.</p>
     </div>
 
-    <!-- Nav -->
     <div class="nav" id="navBar">
       <button class="btn btn-ghost" id="btnBack" style="display:none" onclick="goBack()">← Atrás</button>
       <button class="btn btn-primary" id="btnNext" onclick="goNext()">Continuar →</button>
@@ -699,7 +483,6 @@
   </div>
 
   <div class="form-footer">fitune.io &nbsp;·&nbsp; Tu información está segura y nunca será compartida</div>
-
 </div>
 
 <script>
@@ -707,14 +490,11 @@
   const titles = ['Datos de contacto', 'Tu estudio y servicios', 'Intención y necesidades'];
 
   function updateUI() {
-    for (let i = 1; i <= 3; i++) {
-      document.getElementById(`step${i}`).classList.toggle('active', i === current);
-    }
+    for (let i = 1; i <= 3; i++) document.getElementById(`step${i}`).classList.toggle('active', i === current);
     document.getElementById('stepTitle').textContent = titles[current - 1];
     document.getElementById('btnBack').style.display = current > 1 ? 'inline-flex' : 'none';
     document.getElementById('btnNext').textContent = current === 3 ? 'Enviar registro ✓' : 'Continuar →';
 
-    // Progress dots
     for (let i = 1; i <= 3; i++) {
       const dot = document.getElementById(`dot${i}`);
       dot.className = 'prog-dot';
@@ -722,9 +502,7 @@
       else if (i === current) { dot.className += ' active'; dot.textContent = i; }
       else dot.textContent = i;
     }
-    for (let i = 1; i <= 2; i++) {
-      document.getElementById(`line${i}`).classList.toggle('active', i < current);
-    }
+    for (let i = 1; i <= 2; i++) document.getElementById(`line${i}`).classList.toggle('active', i < current);
   }
 
   function validate() {
@@ -770,35 +548,30 @@
   }
 
   async function submitForm() {
-    // Collect all field values
     const servicios = [...document.querySelectorAll('input[name="servicio"]:checked')].map(e => e.value).join(';');
     const dolores   = [...document.querySelectorAll('input[name="dolor"]:checked')].map(e => e.value).join(';');
 
-    // Combine dolor + wellhub into notes since no matching properties exist
     const notesValue = [
       'Dolor principal: ' + (dolores || 'No indicado'),
       'Wellhub/TotalPass: ' + (document.getElementById('wellhub').value || 'No indicado'),
     ].join('\n');
 
     const fields = [
-      { name: 'firstname',                    value: document.getElementById('nombre').value.trim() },
-      { name: 'email',                        value: document.getElementById('email').value.trim() },
-      { name: 'telefono_whatsapp',            value: document.getElementById('telefono').value.trim() },
-      { name: 'nombre_del_estudio_o_negocio', value: document.getElementById('nombre_estudio').value.trim() },
-      { name: 'instagram_handle',             value: document.getElementById('instagram').value.trim() },
-      { name: 'estado_del_estudio',           value: document.querySelector('input[name="estado"]:checked')?.value || '' },
+      { name: 'firstname', value: document.getElementById('nombre').value.trim() },
+      { name: 'email', value: document.getElementById('email').value.trim() },
+      { name: 'phone', value: document.getElementById('telefono').value.trim() },
+      { name: 'company', value: document.getElementById('nombre_estudio').value.trim() },
+      { name: 'instagram_handle', value: document.getElementById('instagram').value.trim() },
+      { name: 'estado_del_estudio', value: document.querySelector('input[name="estado"]:checked')?.value || '' },
       { name: 'que_servicios_ofreces_multi_select', value: servicios },
-      { name: 'cuantos_clientes_tienes_radio_',     value: document.getElementById('clientes').value },
-      { name: 'urgencia_demo',                value: document.querySelector('input[name="urgencia"]:checked')?.value || '' },
-      { name: 'dolor_principal',              value: dolores },
-      { name: 'wellhub_totalpass',            value: document.getElementById('wellhub').value || '' },
-      { name: 'hs_lead_status',              value: 'NEW' },
+      { name: 'cuantos_clientes_tienes_radio_', value: document.getElementById('clientes').value || '' },
+      { name: 'urgencia_demo', value: document.querySelector('input[name="urgencia"]:checked')?.value || '' },
+      { name: 'dolor_principal', value: dolores },
+      { name: 'wellhub_totalpass', value: document.getElementById('wellhub').value || '' },
+      { name: 'notes', value: notesValue }
     ];
 
-    const portalId = '8153409';
-    const formId   = '505fac89-5d3e-4bd9-9f4c-c1590775c438';
     const endpoint = '/.netlify/functions/submit';
-
     const btnNext = document.getElementById('btnNext');
     btnNext.textContent = 'Enviando...';
     btnNext.disabled = true;
@@ -806,44 +579,31 @@
     try {
       const payload = {
         fields: fields.filter(f => f.value && f.value !== ''),
-        context: { 
-          pageUri: window.location.href, 
-          pageName: 'Inside Fitune - Mega Demo'
-        },
-        legalConsentOptions: {
-          consent: {
-            consentToProcess: true,
-            text: 'I agree to allow Fitune to store and process my personal data.',
-            communications: [{
-              value: true,
-              subscriptionTypeId: 999,
-              text: 'I agree to receive marketing communications from Fitune.'
-            }]
-          }
-        }
+        pageUri: window.location.href,
+        pageName: 'Inside Fitune - Mega Demo'
       };
 
       const res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
 
       const responseText = await res.text();
-      
+
       if (res.ok) {
         showSuccess();
       } else {
-        // Log error details in page title for debugging
-        document.title = 'Error: ' + res.status + ' - ' + responseText.substring(0, 100);
-        // Still show success to user
-        showSuccess();
+        alert('Error al enviar (' + res.status + '). Revisa logs en Netlify.');
+        console.error('Submit error:', res.status, responseText);
+        btnNext.textContent = 'Enviar registro ✓';
+        btnNext.disabled = false;
       }
     } catch (e) {
-      document.title = 'Network error: ' + e.message;
-      showSuccess();
+      alert('Error de red: ' + e.message);
+      console.error('Network error:', e);
+      btnNext.textContent = 'Enviar registro ✓';
+      btnNext.disabled = false;
     }
   }
 
