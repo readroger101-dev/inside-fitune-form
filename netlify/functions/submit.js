@@ -10,7 +10,6 @@ exports.handler = async function (event) {
     const formId = '505fac89-5d3e-4bd9-9f4c-c1590775c438';
     const endpoint = `https://api-eu1.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
 
-    // Normalizar fields para HubSpot
     const incomingFields = Array.isArray(data.fields) ? data.fields : [];
     const normalizedFields = incomingFields
       .filter((f) => f && typeof f.name === 'string')
@@ -18,15 +17,12 @@ exports.handler = async function (event) {
         name: String(f.name).trim(),
         value: f.value == null ? '' : String(f.value).trim(),
       }))
-      .filter((f) => f.name.length > 0);
+      .filter((f) => f.name.length > 0 && f.value !== '');
 
     if (!normalizedFields.length) {
       return {
         statusCode: 400,
-        body: JSON.stringify({
-          error: 'No valid fields were provided',
-          hint: 'Send fields as [{ name: "internal_hubspot_name", value: "..." }]',
-        }),
+        body: JSON.stringify({ error: 'No valid fields were provided' }),
       };
     }
 
@@ -52,19 +48,14 @@ exports.handler = async function (event) {
         consent: {
           consentToProcess: true,
           text: 'I agree to allow Fitune to store and process my personal data.',
-          communications: [
-            {
-              value: true,
-              subscriptionTypeId: 999,
-              text: 'I agree to receive marketing communications from Fitune.',
-            },
-          ],
+          communications: [{
+            value: true,
+            subscriptionTypeId: 999,
+            text: 'I agree to receive marketing communications from Fitune.',
+          }],
         },
       },
     };
-
-    // Debug útil (sin exponer valores)
-    console.log('FIELDS_SENT:', normalizedFields.map((f) => f.name));
 
     const res = await fetch(endpoint, {
       method: 'POST',
@@ -78,11 +69,10 @@ exports.handler = async function (event) {
 
     if (res.ok) {
       return { statusCode: 200, body: JSON.stringify({ success: true }) };
-    } else {
-      return { statusCode: res.status, body: responseText };
     }
+
+    return { statusCode: res.status, body: responseText };
   } catch (e) {
-    console.error('Function error:', e.message);
     return { statusCode: 500, body: JSON.stringify({ error: e.message }) };
   }
 };
